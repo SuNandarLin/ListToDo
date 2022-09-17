@@ -1,0 +1,35 @@
+create table typesOfDo(
+noOfType int primary key auto_increment,
+Type varchar(300)
+);
+
+create table Tasks(
+noOfType int,
+tasks varchar(500),
+time varchar(20),
+FinishOrNot int,
+foreign key (noOfType) references typesOfDo(noOfType)
+);
+
+create table Lists(
+noOfType int,
+lists varchar(500), 
+priority int,
+foreign key (noOfType) references typesOfDo(noOfType)
+);
+
+select Type
+from typesOfDo t,Lists l
+where t.noOfType=l.noOfType
+and l.lists='Java HW';
+
+select Type
+from typesOfDo t,Lists l
+where t.noOfType=l.noOfType
+and l.lists='Java HW';
+
+select Type 
+from typesOfDo td,Tasks tk
+where td.noOfType=tk.noOfType;
+
+select time from Tasks;
